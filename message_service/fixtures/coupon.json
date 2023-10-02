@@ -1,0 +1,43 @@
+[
+    {
+      "model": "message_service.Coupon",
+      "pk": 1,
+      "fields": {
+        "description": "10% off your first purchase",
+        "promotional_code": "FIRST10",
+        "percentage": 10,
+        "declined_coupon_image_link": "https://cdn.beehappyeveryday.com/images/ci/8/have-a-wonderful-day-quotes-and-images.webp"
+        
+      }
+    },
+    {
+      "model": "message_service.Coupon",
+      "pk": 2,
+      "fields": {
+        "description": "20% off your next purchase",
+        "promotional_code": "NEXT20",
+        "percentage": 15,
+        "declined_coupon_image_link": "https://cdn.beehappyeveryday.com/images/ci/8/have-a-wonderful-day-quotes-and-images.webp"
+      }
+    },
+    {
+      "model": "message_service.Coupon",
+      "pk": 3,
+      "fields": {
+        "description": "Free shipping on orders over $50",
+        "promotional_code": "FREE50",
+        "percentage": 20,
+        "declined_coupon_image_link": "https://cdn.beehappyeveryday.com/images/ci/8/have-a-wonderful-day-quotes-and-images.webp"
+      }
+    },
+    {
+      "model": "message_service.Coupon",
+      "pk": 4,
+      "fields": {
+        "description": "Buy one, get one 50% off",
+        "promotional_code": "BOGO50",
+        "percentage": 25,
+        "declined_coupon_image_link": "https://cdn.beehappyeveryday.com/images/ci/8/have-a-wonderful-day-quotes-and-images.webp"
+      }
+    }
+  ]

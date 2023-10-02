@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS for styling the pop-up */
+    .popup {
+      display: none;
+      /* Add styles for pop-up appearance */
+    }
+  </style>
+</head>
+<body>
+  <input type="hidden" id="message_id" name="message_id" value={{ message_id }}>
+  <div class="promotion_popup" id="promotion_popup">
+    <p>Welcome to the promotional flow {{ user_name }}. Are you interested in our coupon promotion? </p>
+    <button id="acceptCouponButton">Yes, show me the coupon</button>
+    <button id="declineCouponButton">No, Thanks!</button>
+  </div>
+
+  <div class="coupon_accepted_popup" id="coupon_accepted_popup">
+    <p>Here is our unique promotional coupon: <b>{{ promotional_code }}</b></p>
+    <p>{{ coupon_percentage }} off%. Limit 1 per customer</p>
+  </div>
+  
+  <div class="coupon_declined_popup" id="coupon_declined_popup">
+    <img src= {{ declined_message_link }} alt="Internet Image" width="300" height="200">
+    <p>No worries!.</p>
+    <p>Have a nice day!.</p>
+  </div>
+
+  <script>
+    const acceptCouponButton = document.getElementById('acceptCouponButton');
+    const declineCouponButton = document.getElementById('declineCouponButton');
+    const promotion_popup = document.getElementById('promotion_popup');
+    const coupon_accepted_popup = document.getElementById('coupon_accepted_popup');
+    const coupon_declined_popup = document.getElementById('coupon_declined_popup');
+    
+    coupon_accepted_popup.style.display = 'none';
+    coupon_declined_popup.style.display = 'none';
+    
+    acceptCouponButton.addEventListener('click', () => {
+      promotion_popup.style.display = 'none';
+      coupon_accepted_popup.style.display = 'block';
+      coupon_declined_popup.style.display = 'none';
+      sendRequestToEndpoint("A");
+      
+    });
+    
+    declineCouponButton.addEventListener('click', () => {
+      promotion_popup.style.display = 'none';
+      coupon_accepted_popup.style.display = 'none';
+      coupon_declined_popup.style.display = 'block';
+      sendRequestToEndpoint("D");
+    });
+
+    function sendRequestToEndpoint(message_anwser) {
+
+      const queryParams = {
+        message_id: '112a8074-cc4b-4cd4-9ad8-198cfe06e3bd',
+        message_anwser: message_anwser
+      };
+      
+      const queryString = new URLSearchParams(queryParams).toString();
+      const url = `http://127.0.0.1:8000/updateAnswer/?${queryString}`;
+      
+      fetch(url, {
+        method: 'GET', 
+        headers: {
+          'Content-Type': 'application/json', // Adjust the content type as needed
+        } // Include data if needed
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse the response if it's JSON
+        })
+        .then((data) => {
+          // Handle the response data here
+          console.log(data);
+        })
+        .catch((error) => {
+          // Handle errors here
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+</html>

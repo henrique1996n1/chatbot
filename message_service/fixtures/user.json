@@ -1,0 +1,38 @@
+[
+  {
+    "model": "message_service.User",
+    "pk": 1,
+    "fields": {
+      "name": "Tonny stark",
+      "phone_number": "123-456-7890",
+      "gender": "M"
+    }
+  },
+  {
+    "model": "message_service.User",
+    "pk": 1,
+    "fields": {
+      "name": "Jane Doe",
+      "phone_number": "987-654-3210",
+      "gender": "F"
+    }
+  },
+  {
+    "model": "message_service.User",
+    "pk": 1,
+    "fields": {
+      "name": "Peter Parker",
+      "phone_number": "012-345-6789",
+      "gender": "M"
+    }
+  },
+  {
+    "model": "message_service.User",
+    "pk": 1,
+    "fields": {
+      "name": "Mary Jane Watson",
+      "phone_number": "109-876-5432",
+      "gender": "F"
+    }
+  }
+]
