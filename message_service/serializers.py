@@ -10,16 +10,17 @@ class PromotionStatisticsRequestSerializer(serializers.Serializer):
     coupon_id = serializers.IntegerField(default=None)
     
     def to_internal_value(self, data):
-        if 'gender' not in data: 
-            raise ValidationError({'gender': ["This field is required."]})
-        
-        if str.upper(data['gender']) not in [member.name for member in GenderEnum]:
-            raise ValidationError({'gender': "The unique valid values to the answer field are 'Male' or 'Female'"})
+        if 'gender' in data: 
+            if str.upper(data['gender']) not in [member.name for member in GenderEnum]:
+                raise ValidationError({'gender': "The unique valid values to the answer field are 'Male' or 'Female'"})
         return super().to_internal_value(data)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        data['gender'] = str.upper(data['gender'])
+        if 'gender' in data: 
+            data['gender'] = str.upper(data['gender'])
+        else: 
+            data['gender']= None
         return data
 
 class UpdateCouponAnswerRequestSerializer(serializers.Serializer):

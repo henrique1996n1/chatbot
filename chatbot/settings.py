@@ -54,8 +54,6 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'chatbot.urls'
-#print(BASE_DIR)
-#print(os.path.join(/home/henrique/Desktop/chatbot/chatbot/message_service/templates'))
 
 TEMPLATES = [
     {
