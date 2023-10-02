@@ -1,14 +1,17 @@
+create-virtual-env:
+	python3 -m venv virtualenv
+
 create-docker-image:
 	docker build -t myapp:1.0 .
 
 container-run:
-	docker run -p 8080:80 myapp:1.0
+	docker run -it --rm -p 8000:8000 myapp:1.0
 	
 create-database:
 	python manage.py makemigrations && \
 	python manage.py migrate
 
-update-database-data:
+insert-data:
 	python manage.py loaddata message_service/fixtures/coupon.json && \
 	python manage.py loaddata message_service/fixtures/user.json && \
 	python manage.py loaddata message_service/fixtures/promotional_message.json
