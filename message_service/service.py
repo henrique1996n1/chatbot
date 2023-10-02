@@ -24,6 +24,7 @@ class CouponService():
         except Coupon.DoesNotExist:
             return None            
 
+
 class PromotionalMessageService():
     def save_promotional_messages(self,user_list: list[User],coupon: Coupon):
         '''Save sent message records for all users in the database'''
@@ -38,7 +39,7 @@ class PromotionalMessageService():
         if not saved_records:
             raise Exception("Error to save records")
 
-        return "assertNotRaises"
+
     def update_message_anwser(self,message_id:str , message_anwser: str):
         '''Update the client's message answer '''
         updated_register = PromotionalMessage.objects.filter(message_id = message_id).update(answer=AnswerEnum[message_anwser],data_answered=timezone.now())
@@ -47,6 +48,7 @@ class PromotionalMessageService():
             return None 
         
         return "Updated answer"   
+    
     
     def get_promotional_message(cls, message_id: str) -> PromotionalMessage: 
         '''Returns promotional message details along with user and coupon-related data.'''

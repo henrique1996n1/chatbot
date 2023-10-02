@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-    /* CSS for styling the pop-up */
-    .popup {
-      display: none;
-      /* Add styles for pop-up appearance */
-    }
-  </style>
-</head>
 <body>
   <input type="hidden" id="message_id" name="message_id" value={{ message_id }}>
   <div class="promotion_popup" id="promotion_popup">
@@ -66,21 +57,19 @@
       fetch(url, {
         method: 'GET', 
         headers: {
-          'Content-Type': 'application/json', // Adjust the content type as needed
-        } // Include data if needed
+          'Content-Type': 'application/json', 
+        } 
       })
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-          return response.json(); // Parse the response if it's JSON
+          return response.json(); 
         })
         .then((data) => {
-          // Handle the response data here
           console.log(data);
         })
         .catch((error) => {
-          // Handle errors here
           console.error('Error:', error);
         });
     }

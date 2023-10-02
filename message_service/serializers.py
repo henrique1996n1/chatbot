@@ -6,7 +6,7 @@ class SendMessageRequestSerializer(serializers.Serializer):
     coupon_id = serializers.IntegerField(required=True)
 
 class PromotionStatisticsRequestSerializer(serializers.Serializer):
-    gender = serializers.CharField(max_length=6)
+    gender = serializers.CharField(max_length=6,required=False)
     coupon_id = serializers.IntegerField(default=None)
     
     def to_internal_value(self, data):
