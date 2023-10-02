@@ -11,7 +11,6 @@ class UserService():
         
         if user_list:
             return user_list
-        
         return None
         
     
